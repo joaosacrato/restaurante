@@ -1,17 +1,40 @@
 import "./_style.scss";
+import react from "react";
 import { Link } from "react-router-dom";
 
-function MenuCardapio() {
+interface Props {
+  toggleInputMacarrao: boolean;
+  setToggleInputMacarrao: react.Dispatch<react.SetStateAction<boolean>>;
+}
+
+function MenuCardapio({ toggleInputMacarrao, setToggleInputMacarrao }: Props) {
   return (
     <nav className="nav nav-cardapio">
-      <Link to="/cardapioMacarrao" className="link menu-item button-selecao">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          setToggleInputMacarrao(!toggleInputMacarrao);
+        }}
+        className="menu-item-macarrao menu-item button-selecao"
+        type="button"
+      >
         Macarrão
-      </Link>
-      <button className="menu-item button-selecao">Pizza Salgada</button>
-      <button className="menu-item button-selecao">Lorem, ipsum.</button>
-      <button className="menu-item button-selecao">Pizza Doce</button>
-      <button className="menu-item button-selecao">Toblerone</button>
-      <button className="menu-item button-selecao">Bebidas</button>
+      </button>
+      <button type="button" className="menu-item button-selecao">
+        Pizza Salgada
+      </button>
+      <button type="button" className="menu-item button-selecao">
+        Lorem, ipsum.
+      </button>
+      <button type="button" className="menu-item button-selecao">
+        Pizza Doce
+      </button>
+      <button type="button" className="menu-item button-selecao">
+        Toblerone
+      </button>
+      <button type="button" className="menu-item button-selecao">
+        Bebidas
+      </button>
     </nav>
   );
 }

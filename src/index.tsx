@@ -1,23 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Cardapio from "./pages/Cardapio";
-import CardapioMacarrao from "./pages/CardapioMacarrão";
+import Footer from "./components/Footer";
+import Cabecalho from "./components/Cabecalho";
+import ConfirmacaoCardapio from "./pages/ConfirmacaoCardapio";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Cabecalho />
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="/cardapio" element={<Cardapio />}></Route>
-          <Route path="/cardapioMacarrao" element={<CardapioMacarrao />} />
+          <Route path="cardapio" element={<Cardapio />} />
+          <Route path="cardapio/order" element={<ConfirmacaoCardapio />} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      <Outlet />
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

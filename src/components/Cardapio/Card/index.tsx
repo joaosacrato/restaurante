@@ -2,34 +2,35 @@ import { useState } from "react";
 import Contador from "../../Contador";
 import "./_style.scss";
 
-function Card() {
+interface Props {
+  pizza: {
+    id: number;
+    nome: string;
+    preco: number;
+    ingredientes: string[];
+  };
+}
+
+function Card({ pizza }: Props) {
   const [contador, setContador] = useState(0);
-  const ingredientes = [
-    "Abacate",
-    "Molho de Tomate",
-    "Abobora",
-    "Melão",
-    "Presunto",
-    "Palmito",
-    "Ovo",
-    "Ervilha",
-    "Cebola",
-    "Muçarela",
-    "Molho de tomate",
-    "Orégano",
-    "Azeitona",
-  ];
+
   return (
     <div className="card">
-      <h2 className="card-titulo">Pizza de Calabreza</h2>
+      <h2 className="card-titulo">{pizza.nome}</h2>
       <div className="card-div">
         <div className="card-div-ingredientes">
           <span className="card-span">Ingredientes:</span>
-          {ingredientes.map((ingrediente) => (
-            <span className="card-span-ingredientes">{ingrediente}</span>
+          {pizza.ingredientes.map((ingrediente) => (
+            <span key={ingrediente} className="card-span-ingredientes">
+              {ingrediente}
+            </span>
           ))}
         </div>
-        <Contador contador={contador} setContador={setContador} />
+        <div className="card-div-ingredientes">
+          <span className="card-span">Preço:</span>
+          <span className="card-span">{pizza.preco.toFixed(2)}</span>
+        </div>
+        <Contador nome={pizza.nome} contador={contador} setContador={setContador} />
       </div>
     </div>
   );

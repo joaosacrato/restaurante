@@ -1,0 +1,27 @@
+@import "../style";
+@import "../Card/style";
+
+.container_form {
+  background-color: $branco;
+  transition: all 2s;
+  padding: 0 1em;
+
+  .titulo_form {
+    @extend .card-titulo;
+    padding-top: 1em;
+  }
+}
+
+@keyframes append-animate {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.append-animacao {
+  transform-origin: 100% 0;
+  animation: append-animate 0.35s linear;
+}

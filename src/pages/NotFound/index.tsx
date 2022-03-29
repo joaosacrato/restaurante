@@ -1,8 +1,9 @@
 function NotFound() {
-    return ( 
-        <>
-        </>
-     );
+  return (
+    <>
+      <p> nao existe </p>
+    </>
+  );
 }
 
 export default NotFound;

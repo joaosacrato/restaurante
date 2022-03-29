@@ -1,0 +1,45 @@
+@import "./../../../../styles/variables/colors";
+
+.container-macarrao {
+  background-color: $branco;
+  &-titulo {
+    background-color: $branco;
+    padding: 1em;
+    color: $preto;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  &-input-radio {
+    background-color: $branco;
+    width: 1.3em;
+    height: 1.3em;
+  }
+
+  &-input-checkbox {
+    background-color: $branco;
+    width: 1.3em;
+    height: 1.3em;
+  }
+
+  &-input-label {
+    background-color: $branco;
+    padding: 0 1em;
+    text-transform: capitalize;
+    margin-bottom: 0.5em;
+
+    @media screen and (min-width: 992px) {
+      font-size: 1.5em;
+      padding-left: 1em;
+    }
+  }
+
+  &-grid {
+    background-color: $branco;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    &:last-of-type {
+      margin-bottom: 2em;
+    }
+  }
+}

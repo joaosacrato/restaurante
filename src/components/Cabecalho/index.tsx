@@ -5,11 +5,7 @@ function Cabecalho() {
   return (
     <nav className="nav">
       <Link to="/" className="link logo-link">
-        <img
-          className="logo"
-          src="https://pizzariadinapoli.com.br/wp-content/uploads/2017/12/logo_dinapoli_site.png"
-          alt="logo"
-        />
+        <img className="logo" src="../../assets/img/logo.png" alt="logo" />
       </Link>
 
       <ul className="menu">

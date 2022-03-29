@@ -1,10 +1,13 @@
+import './_style.scss'
+
 
 interface Props {
     contador: number,
-    setContador: React.Dispatch<React.SetStateAction<number>>
+    setContador: React.Dispatch<React.SetStateAction<number>>,
+    nome: string
 }
 
-function Contador({contador, setContador}: Props) {
+function Contador({contador, setContador, nome}: Props) {
   return (
     <div className="card-contador">
       <button
@@ -19,7 +22,7 @@ function Contador({contador, setContador}: Props) {
         -
       </button>
 
-      <span className="card-contador-span">{contador}</span>
+      <input name={nome} id={`produto_${nome}`} className="card-contador-number" type={"number"} readOnly value={contador} />
 
       <button
         onClick={(event) => {

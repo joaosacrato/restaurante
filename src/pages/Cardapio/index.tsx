@@ -4,9 +4,7 @@ import Menu from "../../components/Cardapio";
 function Cardapio() {
   return (
     <>
-      <Cabecalho />
       <Menu />      
-      <Footer />
 
     </>
   );

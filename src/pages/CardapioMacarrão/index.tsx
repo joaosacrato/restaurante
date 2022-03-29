@@ -1,12 +1,10 @@
 import Cabecalho from "../../components/Cabecalho";
 import Footer from "../../components/Footer";
-import MenuMacarrao from "../../components/MenuMacarrao";
+import MenuMacarrao from "../../components/Cardapio/Macarrao";
 function CardapioMacarrao() {
   return (
     <>
-      <Cabecalho />
       <MenuMacarrao />
-      <Footer />
     </>
   );
 }

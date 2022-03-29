@@ -1,0 +1,64 @@
+@import "../../../styles/variables/colors";
+
+.card {
+  display: inline-block;
+  background-color: $branco;
+  padding: 1em 1em;
+  border-top: solid;
+
+
+  &-titulo {
+    background-color: $branco;
+    color: $preto;
+    font-weight: 700;
+    font-size: 1.5em;
+    padding-bottom: 0.5em;
+  }
+  &-div {
+    display: flex;
+    background-color: $branco;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+
+    &-ingredientes {
+      background-color: $branco;
+    }
+  }
+  &-span {
+    font-weight: 600;
+    background-color: $branco;
+    &-ingredientes {
+      background-color: $branco;
+      &::after {
+        content: ",";
+      }
+      &::before {
+        content: " ";
+      }
+      &:last-of-type::after {
+        content: ".";
+      }
+    }
+  }
+  &-contador {
+    background-color: $branco;
+    padding: 1em 0em;
+    margin-right: 3em;
+    &-seletor {
+      background-color: $branco;
+      padding: 0 0.5em;
+      font-size: 1.5em;
+      border-radius: 0em;
+    }
+    &-span {
+      margin: 1em;
+      background-color: $branco;
+      font-size: large;
+    }
+  }
+
+  &:last-of-type{
+      border-bottom: solid ;
+  }
+}

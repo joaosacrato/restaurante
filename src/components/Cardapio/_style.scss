@@ -1,0 +1,32 @@
+@import "../../styles/variables/colors";
+
+.section-cardapio {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: $branco;
+  border: solid;
+  border-radius: 1em;
+  margin: 0 10em 3em 10em;
+  min-height: 75vh;
+
+  @media screen and (max-width: 992px) {
+    margin: 0;
+    border: none;
+    border-top: solid;
+    border-radius: 0;
+  }
+}
+
+.button-cardapio {
+    background-color: $primaria;
+    color: $branco;
+    padding: 1em 1em;
+    border: solid $preto;
+    align-self: flex-end;
+    font-size: larger;
+    border-radius: 1em;
+    margin: 1em 4em 1em 0;
+
+
+}

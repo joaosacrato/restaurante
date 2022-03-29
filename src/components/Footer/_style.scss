@@ -1,0 +1,25 @@
+@import '../../styles/variables/colors';
+
+
+
+.div-footer {
+    background-color: $primaria;
+    height: 10em;
+    display: flex;
+    flex-direction: column;
+}
+
+.div-enderecos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    font-size: 2em;
+    color: $branco;
+    padding: 0 2em;
+    margin-bottom: 1em;
+}
+

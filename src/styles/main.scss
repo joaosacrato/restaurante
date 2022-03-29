@@ -1,0 +1,63 @@
+@import "./variables/font";
+@import "./variables/colors";
+
+* {
+  background-color: $primaria;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em 2em;
+  @media only screen and (max-width: 600px) {
+    justify-content: space-around;
+    padding: 0 0 1em 0;
+  }
+}
+
+.logo {
+  height: 12em;
+  margin: 0 2.5em 0 0;
+  @media only screen and (max-width: 600px) {
+    height: 9em;
+    margin: 0.5em 0em;
+  }
+}
+
+.menu-item {
+  border: solid;
+  border-color: $preto;
+  border-width: 0.15em;
+  border-radius: 1em;
+  background-color: $branco;
+  padding: 0.6em;
+  font-weight: 700;
+}
+
+.link {
+  background-color: $branco;
+  text-decoration: none;
+  color: $preto;
+}
+
+.hr {
+  color: $branco;
+  width: 70vw;
+}
+
+.footer {
+  margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3em;
+}
+
+.span {
+  padding: 0.2em;
+  color: $branco;
+}

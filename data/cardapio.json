@@ -1,0 +1,111 @@
+{
+  "pizzas_salgadas": [
+    {
+      "id": 1,
+      "nome": "Portuguesa",
+      "preco": 45.0,
+      "ingredientes": [
+        "Presunto",
+        "Palmito",
+        "Ovo",
+        "Ervilha",
+        "Cebola",
+        "Muçarela",
+        "Molho de tomate",
+        "Orégano",
+        "Azeitona"
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Pascoalito",
+      "preco": 45.0,
+      "ingredientes": [
+        "Ricota",
+        "Peito de Peru",
+        "Muçarela",
+        "Parmesão",
+        "Molho de tomate",
+        "Orégano",
+        "Azeitona"
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Quatro queijos",
+      "preco": 45.0,
+      "ingredientes": [
+        "Gorgonzola",
+        "Muçarela",
+        "Requeijão",
+        "Provolone",
+        "Molho de tomate",
+        "Orégano",
+        "Azeitona"
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "Di napoli",
+      "preco": 45.0,
+      "ingredientes": [
+        "Muçarela",
+        "Calabreza",
+        "Presunto",
+        "Lombo",
+        "Bacon",
+        "Requeijão",
+        "Molho de tomate",
+        "Orégano",
+        "Azeitona"
+      ]
+    }
+  ],
+
+  "pizzas_doces": [
+    {
+      "id": 66,
+      "nome": "Chocolate",
+      "preco": 45.0,
+      "ingredientes": ["Chocolate"]
+    },
+    {
+      "id": 67,
+      "nome": "Sensação",
+      "preco": 45.0,
+      "ingredientes": ["Chocolate", "Morango"]
+    },
+    {
+      "id": 68,
+      "nome": "Prestígio",
+      "preco": 45,
+      "ingredientes": ["Chocolate", "Coco"]
+    }
+  ],
+  "calzone": [
+    {
+      "id": 72,
+      "nome": "Calzone simples",
+      "preco": 45,
+      "ingredientes": [
+        "Ricota",
+        "Presunto",
+        "Muçarela",
+        "Molho de tomate",
+        "Orégano"
+      ]
+    },
+    {
+      "id": 79,
+      "nome": "Calzone calabreza",
+      "preco": 45,
+      "ingredientes": [
+        "Calabreza",
+        "Cebola",
+        "Molho de tomate",
+        "Muçarela",
+        "Orégano"
+      ]
+    }
+  ]
+}

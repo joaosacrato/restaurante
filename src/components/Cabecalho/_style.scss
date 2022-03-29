@@ -1,0 +1,18 @@
+@import "../../styles/variables/colors";
+
+.logo-link {
+  background-color: $primaria !important;
+  margin-left: 12vw;
+}
+.menu-item_cabecalho_hover {
+  &:hover {
+    background-color: $verde-selecionado;
+    border-color: $branco;
+    transition: all 1s;
+    .link {
+      color: $branco;
+      background-color: $verde-selecionado;
+      transition: all 1s;
+    }
+  }
+}

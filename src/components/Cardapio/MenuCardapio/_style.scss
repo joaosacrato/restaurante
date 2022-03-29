@@ -1,0 +1,19 @@
+@import "../../../styles/variables/colors";
+
+.nav-cardapio {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2em;
+  background-color: $branco;
+
+  @media screen and (max-width: 992px) {
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding-top: 2em;
+  }
+}

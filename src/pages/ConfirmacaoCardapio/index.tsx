@@ -6,7 +6,6 @@ function ConfirmacaoCardapio() {
     return ( 
         <>
         <ConfirmacaoMenu />
-        <p>oi</p>
         </>
      );
 }

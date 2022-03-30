@@ -9,28 +9,56 @@ function Cardapio() {
   const pizzasSalgadas = data.pizzas_salgadas;
   const pizzasDoces = data.pizzas_doces;
   const calzones = data.calzone;
-
+  const [macarroes, setMacarroes] = useState({});
+  const [items, setItems] = useState({});
   const [toggleInputMacarrao, setToggleInputMacarrao] = useState(false);
+
+  const submitItems = (obj: any) => {
+    let str = "";
+
+    for (const prop in obj) {
+      str = str + "&" + prop + "=" + obj[prop];
+    }
+
+    console.log(str);
+  };
+
+  submitItems(items);
+
   return (
     <form className="form-cardapio">
       <MenuCardapio
         toggleInputMacarrao={toggleInputMacarrao}
         setToggleInputMacarrao={setToggleInputMacarrao}
       />
-      {toggleInputMacarrao && <MenuMacarrao />}
+      {toggleInputMacarrao && (
+        <MenuMacarrao
+          items={items}
+          setItems={setItems}
+          macarroes={macarroes}
+          setMacarroes={setMacarroes}
+        />
+      )}
 
       {pizzasSalgadas.map((pizza) => (
-        <Card pizza={pizza} />
+        <Card items={items} setItems={setItems} pizza={pizza} key={pizza.id} />
       ))}
 
       {pizzasDoces.map((pizza) => (
-        <Card pizza={pizza} />
+        <Card items={items} setItems={setItems} pizza={pizza} key={pizza.id} />
       ))}
 
       {calzones.map((calzone) => (
-        <Card pizza={calzone} />
+        <Card
+          items={items}
+          setItems={setItems}
+          pizza={calzone}
+          key={calzone.id}
+        />
       ))}
-      <button  type="submit" className="button-cardapio">Próximo</button>
+      <button type="submit" className="button-cardapio">
+        Próximo
+      </button>
     </form>
   );
 }

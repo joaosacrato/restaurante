@@ -1,13 +1,50 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import "./_style.scss";
 
-
 interface Props {
-  contador: number
+  contador: number;
+  setMacarroes: React.Dispatch<React.SetStateAction<{}>>;
+  macarroes: {};
 }
 
+function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
+  const onChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let obj = { ...macarroes, [event.target.name]: event.target.value };
+    setMacarroes(obj);
+  };
 
-function InputMacarrao({contador}: Props) {
+  const onChangeCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let objMacarrao = macarroes;
+
+    //pega o valor de data-ingrediente no caso ingrediente_1
+
+    const chave = String(event.currentTarget.getAttribute("data-ingrediente"));
+
+    // caso não haja a key ingrediente_1 adiciona no obj
+    {
+      (objMacarrao as any)[chave]
+        ? (objMacarrao = objMacarrao)
+        : (objMacarrao = { ...objMacarrao, [chave]: [] });
+    }
+
+    // array de ingredientes
+
+    let ingredientes = [...(objMacarrao as any)[chave]];
+
+    if (event.target.checked) {
+      ingredientes.push(event.target.id);
+    } else {
+      let indice = ingredientes.indexOf(event.target.id);
+      ingredientes.splice(indice, 1);
+    }
+
+    objMacarrao = { ...objMacarrao, [chave]: ingredientes };
+
+    setMacarroes(objMacarrao);
+
+    console.log(macarroes);
+  };
+
   return (
     <div className="append-animacao container-macarrao">
       <h2 className="container-macarrao-titulo">Escolha a massa:</h2>
@@ -20,6 +57,7 @@ function InputMacarrao({contador}: Props) {
             id="spaguetti"
             name={`massa_${contador}`}
             value="spaguetti"
+            onChange={(e) => onChangeRadio(e)}
           />
           spaguetti
         </label>
@@ -30,6 +68,7 @@ function InputMacarrao({contador}: Props) {
             id="fettuccine"
             name={`massa_${contador}`}
             value="fettuccine"
+            onChange={(e) => onChangeRadio(e)}
           />
           fettuccine
         </label>
@@ -40,6 +79,7 @@ function InputMacarrao({contador}: Props) {
             id="fusilli"
             name={`massa_${contador}`}
             value="fusilli"
+            onChange={(e) => onChangeRadio(e)}
           />
           fusilli
         </label>
@@ -50,6 +90,7 @@ function InputMacarrao({contador}: Props) {
             id="penne"
             name={`massa_${contador}`}
             value="penne"
+            onChange={(e) => onChangeRadio(e)}
           />
           penne
         </label>
@@ -62,6 +103,7 @@ function InputMacarrao({contador}: Props) {
             id="penne_tricolor"
             name={`massa_${contador}`}
             value="penne_tricolor"
+            onChange={(e) => onChangeRadio(e)}
           />
           penne tricolor
         </label>
@@ -72,6 +114,7 @@ function InputMacarrao({contador}: Props) {
             id="farfalle"
             name={`massa_${contador}`}
             value="farfalle"
+            onChange={(e) => onChangeRadio(e)}
           />
           farfalle
         </label>
@@ -82,6 +125,7 @@ function InputMacarrao({contador}: Props) {
             id="capelette"
             name={`massa_${contador}`}
             value="capelette"
+            onChange={(e) => onChangeRadio(e)}
           />
           capelette
         </label>
@@ -92,6 +136,7 @@ function InputMacarrao({contador}: Props) {
             id="nhoque"
             name={`massa_${contador}`}
             value="nhoque"
+            onChange={(e) => onChangeRadio(e)}
           />
           nhoque
         </label>
@@ -101,75 +146,79 @@ function InputMacarrao({contador}: Props) {
       <h2 className="container-macarrao-titulo">Escolha o molho:</h2>
 
       <div className="container-macarrao-grid">
-
-
-      <label className="container-macarrao-input-label" htmlFor="branco">
-        <input
-          className="container-macarrao-input-radio"
-          name={`molho_${contador}`}
-          type="radio"
-          id="branco"
-          value="branco"
+        <label className="container-macarrao-input-label" htmlFor="branco">
+          <input
+            className="container-macarrao-input-radio"
+            name={`molho_${contador}`}
+            type="radio"
+            id="branco"
+            value="branco"
+            onChange={(e) => onChangeRadio(e)}
           />
-        branco
-      </label>
-      <label
-        className="container-macarrao-input-label"
-        htmlFor="branco_com_espinafre"
+          branco
+        </label>
+        <label
+          className="container-macarrao-input-label"
+          htmlFor="branco_com_espinafre"
         >
-        <input
-          className="container-macarrao-input-radio"
-          name={`molho_${contador}`}
-          type="radio"
-          id="branco_com_espinafre"
-          value="branco_com_espinafre"
+          <input
+            className="container-macarrao-input-radio"
+            name={`molho_${contador}`}
+            type="radio"
+            id="branco_com_espinafre"
+            value="branco_com_espinafre"
+            onChange={(e) => onChangeRadio(e)}
           />
-        branco com espinafre
-      </label>
-      <label className="container-macarrao-input-label" htmlFor="bolonhesa">
-        <input
-          className="container-macarrao-input-radio"
-          name={`molho_${contador}`}
-          type="radio"
-          id="bolonhesa"
-          value="bolonhesa"
+          branco com espinafre
+        </label>
+        <label className="container-macarrao-input-label" htmlFor="bolonhesa">
+          <input
+            className="container-macarrao-input-radio"
+            name={`molho_${contador}`}
+            type="radio"
+            id="bolonhesa"
+            value="bolonhesa"
+            onChange={(e) => onChangeRadio(e)}
           />
-        bolonhesa
-      </label>
-      <label className="container-macarrao-input-label" htmlFor="rose">
-        <input
-          className="container-macarrao-input-radio"
-          name={`molho_${contador}`}
-          type="radio"
-          id="rose"
-          value="rose"
+          bolonhesa
+        </label>
+        <label className="container-macarrao-input-label" htmlFor="rose">
+          <input
+            className="container-macarrao-input-radio"
+            name={`molho_${contador}`}
+            type="radio"
+            id="rose"
+            value="rose"
+            onChange={(e) => onChangeRadio(e)}
           />
-        rose
-      </label>
-      <label className="container-macarrao-input-label" htmlFor="ao_sugo">
-        <input
-          className="container-macarrao-input-radio"
-          name={`molho_${contador}`}
-          type="radio"
-          id="ao_sugo"
-          value="ao_sugo"
+          rose
+        </label>
+        <label className="container-macarrao-input-label" htmlFor="ao_sugo">
+          <input
+            className="container-macarrao-input-radio"
+            name={`molho_${contador}`}
+            type="radio"
+            id="ao_sugo"
+            value="ao_sugo"
+            onChange={(e) => onChangeRadio(e)}
           />
-        ao sugo
-      </label>
-      <label
-        className="container-macarrao-input-label"
-        htmlFor="quatro_queijos"
+          ao sugo
+        </label>
+        <label
+          className="container-macarrao-input-label"
+          htmlFor="quatro_queijos"
         >
-        <input
-          className="container-macarrao-input-radio"
-          name={`molho_${contador}`}
-          type="radio"
-          id="quatro_queijos"
-          value="quatro_queijos"
+          <input
+            className="container-macarrao-input-radio"
+            name={`molho_${contador}`}
+            type="radio"
+            id="quatro_queijos"
+            value="quatro_queijos"
+            onChange={(e) => onChangeRadio(e)}
           />
-        quatro queijos
-      </label>
-        </div>
+          quatro queijos
+        </label>
+      </div>
 
       <hr />
 
@@ -179,13 +228,15 @@ function InputMacarrao({contador}: Props) {
         <label
           className="container-macarrao-input-label"
           htmlFor="frutos_do_mar"
-          >
+        >
           <input
             className="container-macarrao-input-checkbox"
             type="checkbox"
             id="frutos_do_mar"
             name="frutos_do_mar"
-            />
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
+          />
           frutos do mar
         </label>
         <label className="container-macarrao-input-label" htmlFor="azeite">
@@ -194,6 +245,8 @@ function InputMacarrao({contador}: Props) {
             type="checkbox"
             id="azeite"
             name="azeite"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           azeite
         </label>
@@ -204,6 +257,8 @@ function InputMacarrao({contador}: Props) {
             type="checkbox"
             id="margarina"
             name="margarina"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           margarina
         </label>
@@ -214,6 +269,8 @@ function InputMacarrao({contador}: Props) {
             type="checkbox"
             id="aliche"
             name="aliche"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           aliche
         </label>
@@ -224,6 +281,8 @@ function InputMacarrao({contador}: Props) {
             id="bacon"
             name="bacon"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           bacon
         </label>
@@ -234,6 +293,8 @@ function InputMacarrao({contador}: Props) {
             id="calabresa"
             name="calabresa"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           calabresa
         </label>
@@ -244,6 +305,8 @@ function InputMacarrao({contador}: Props) {
             id="cebola"
             name="cebola"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           cebola
         </label>
@@ -254,6 +317,8 @@ function InputMacarrao({contador}: Props) {
             id="alho"
             name="alho"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           alho
         </label>
@@ -264,6 +329,8 @@ function InputMacarrao({contador}: Props) {
             id="presunto"
             name="presunto"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           presunto
         </label>
@@ -274,6 +341,8 @@ function InputMacarrao({contador}: Props) {
             id="frango"
             name="frango"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           frango
         </label>
@@ -284,6 +353,8 @@ function InputMacarrao({contador}: Props) {
             id="brocoli"
             name="brocoli"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           brocoli
         </label>
@@ -294,6 +365,8 @@ function InputMacarrao({contador}: Props) {
             id="tomate"
             name="tomate"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           tomate
         </label>
@@ -303,6 +376,8 @@ function InputMacarrao({contador}: Props) {
             type="checkbox"
             id="milho"
             name="milho"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
             className="container-macarrao-input-checkbox"
           />
           milho
@@ -314,6 +389,8 @@ function InputMacarrao({contador}: Props) {
             id="ervilha"
             name="ervilha"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           ervilha
         </label>
@@ -327,6 +404,8 @@ function InputMacarrao({contador}: Props) {
             id="azeitona_preta"
             name="azeitona_preta"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           azeitona preta
         </label>
@@ -340,6 +419,8 @@ function InputMacarrao({contador}: Props) {
             id="azeitona_verde"
             name="azeitona_verde"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           azeitona verde
         </label>
@@ -350,6 +431,8 @@ function InputMacarrao({contador}: Props) {
             id="champgnon"
             name="champgnon"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           champgnon
         </label>
@@ -360,6 +443,8 @@ function InputMacarrao({contador}: Props) {
             id="muçarela"
             name="muçarela"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           muçarela
         </label>
@@ -370,6 +455,8 @@ function InputMacarrao({contador}: Props) {
             id="provolone"
             name="provolone"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           provolone
         </label>
@@ -380,6 +467,8 @@ function InputMacarrao({contador}: Props) {
             id="palmito"
             name="palmito"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           palmito
         </label>
@@ -390,6 +479,8 @@ function InputMacarrao({contador}: Props) {
             id="cenoura"
             name="cenoura"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           cenoura
         </label>
@@ -400,6 +491,8 @@ function InputMacarrao({contador}: Props) {
             id="salsinha"
             name="salsinha"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           salsinha
         </label>
@@ -410,6 +503,8 @@ function InputMacarrao({contador}: Props) {
             id="cebolinha"
             name="cebolinha"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           cebolinha
         </label>
@@ -420,6 +515,8 @@ function InputMacarrao({contador}: Props) {
             id="manjericao"
             name="manjericao"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           manjericão
         </label>
@@ -430,6 +527,8 @@ function InputMacarrao({contador}: Props) {
             id="alcaparra"
             name="alcaparra"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           alcaparra
         </label>
@@ -440,6 +539,8 @@ function InputMacarrao({contador}: Props) {
             id="alho_poro"
             name="alho_poro"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           alho poró
         </label>
@@ -450,6 +551,8 @@ function InputMacarrao({contador}: Props) {
             id="pimenta"
             name="pimenta"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           pimenta
         </label>
@@ -460,6 +563,8 @@ function InputMacarrao({contador}: Props) {
             id="oregano"
             name="oregano"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           orégano
         </label>
@@ -470,6 +575,8 @@ function InputMacarrao({contador}: Props) {
             id="passas"
             name="passas"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           passas
         </label>
@@ -480,6 +587,8 @@ function InputMacarrao({contador}: Props) {
             id="parmessao"
             name="parmessao"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           parmessão
         </label>
@@ -490,6 +599,8 @@ function InputMacarrao({contador}: Props) {
             id="tomate_seco"
             name="tomate_seco"
             className="container-macarrao-input-checkbox"
+            data-ingrediente={`ingrediente_${contador}`}
+            onChange={(e) => onChangeCheckBox(e)}
           />
           tomate seco
         </label>

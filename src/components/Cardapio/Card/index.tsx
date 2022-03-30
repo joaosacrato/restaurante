@@ -1,8 +1,11 @@
+import react from "react";
 import { useState } from "react";
 import Contador from "../../Contador";
 import "./_style.scss";
 
 interface Props {
+  items: {};
+  setItems: react.Dispatch<react.SetStateAction<{}>>;
   pizza: {
     id: number;
     nome: string;
@@ -11,7 +14,7 @@ interface Props {
   };
 }
 
-function Card({ pizza }: Props) {
+function Card({ pizza, items, setItems }: Props) {
   const [contador, setContador] = useState(0);
 
   return (
@@ -30,7 +33,14 @@ function Card({ pizza }: Props) {
           <span className="card-span">Preço:</span>
           <span className="card-span">{pizza.preco.toFixed(2)}</span>
         </div>
-        <Contador nome={pizza.nome} contador={contador} setContador={setContador} />
+        <Contador
+          nome={pizza.id.toString()}
+          contador={contador}
+          setContador={setContador}
+          items={items}
+          setItems={setItems}
+
+        />
       </div>
     </div>
   );

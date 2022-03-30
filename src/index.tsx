@@ -16,13 +16,12 @@ ReactDOM.render(
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="cardapio" element={<Cardapio />} />
-          <Route path="cardapio/order" element={<ConfirmacaoCardapio />} />
+          <Route path="/cardapio" element={<Cardapio />}></Route>
+          <Route path="/order/*" element={<ConfirmacaoCardapio />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-      <Outlet />
       <Footer />
     </BrowserRouter>
   </React.StrictMode>,

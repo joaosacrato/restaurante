@@ -8,6 +8,7 @@ import Cardapio from "./pages/Cardapio";
 import Footer from "./components/Footer";
 import Cabecalho from "./components/Cabecalho";
 import ConfirmacaoCardapio from "./pages/ConfirmacaoCardapio";
+import Endereco from "./pages/Endereco";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,8 +17,11 @@ ReactDOM.render(
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="/cardapio" element={<Cardapio />}></Route>
-          <Route path="/order/*" element={<ConfirmacaoCardapio />} />
+          <Route path="/cardapio">
+            <Route index element={<Cardapio />} />
+            <Route path="endereco/*" element={<Endereco />} />
+            <Route path="endereco/order/*" element={<ConfirmacaoCardapio />} />
+          </Route>
 
           <Route path="*" element={<NotFound />} />
         </Route>

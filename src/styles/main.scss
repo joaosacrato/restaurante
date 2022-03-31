@@ -1,8 +1,13 @@
 @import "./variables/font";
 @import "./variables/colors";
+@import './reset.scss';
 
 * {
   background-color: $primaria;
+}
+
+body {
+  margin: 0
 }
 
 .nav {

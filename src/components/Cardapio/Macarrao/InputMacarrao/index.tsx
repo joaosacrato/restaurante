@@ -42,7 +42,6 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
 
     setMacarroes(objMacarrao);
 
-    console.log(macarroes);
   };
 
   return (

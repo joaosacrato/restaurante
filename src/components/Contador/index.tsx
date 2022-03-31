@@ -30,7 +30,6 @@ function Contador({ contador, setContador, nome, items, setItems }: Props) {
       let teste = { ...items, [nome]: contador };
       setItems && setItems(teste);
 
-      console.log(items);
     }
   }, [contador]);
   return (

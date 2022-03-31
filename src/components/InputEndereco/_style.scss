@@ -1,0 +1,56 @@
+@import "../Cardapio/style";
+@import "../../styles/variables/colors";
+
+.form-endereco {
+  @extend .form-cardapio;
+  min-height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.div-endereco {
+  display: flex;
+  flex-direction: column;
+  background-color: $branco;
+}
+
+.label-endereco-texto {
+  background-color: $branco;
+  font-size: 1.5em;
+  margin: 1em 1em;
+}
+
+.input-endereco-texto {
+  background-color: $branco;
+  font-size: 1.2em;
+  padding: 0.2em 0;
+  width: 90%;
+  border: none;
+  border-bottom: solid 0.15em;
+  margin: 0 1em;
+
+  &:focus {
+    outline: none;
+  }
+  &-concluido {
+    border-color: $terciaria;
+  }
+
+  &:last-of-type {
+    margin-bottom: 2em;
+  }
+}
+
+.button-endereco {
+  @extend .button-cardapio;
+  width: auto;
+  justify-self: end;
+  @media screen and (max-width: 1200px) {
+    justify-self: start;
+    margin: 0em 0em 1em 1em;
+  }
+}

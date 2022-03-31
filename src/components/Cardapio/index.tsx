@@ -4,6 +4,7 @@ import Card from "./Card";
 import MenuCardapio from "./MenuCardapio";
 import MenuMacarrao from "./Macarrao";
 import data from "../../data/cardapio.json";
+import { Link } from "react-router-dom";
 
 function Cardapio() {
   const pizzasSalgadas = data.pizzas_salgadas;
@@ -20,10 +21,15 @@ function Cardapio() {
       str = str + "&" + prop + "=" + obj[prop];
     }
 
-    console.log(str);
+    return str;
   };
 
-  submitItems(items);
+  //parametro da url
+
+  let paramUrl = submitItems(items) + submitItems(macarroes);
+  paramUrl = paramUrl.replaceAll(",", "+");
+  paramUrl = "?" + paramUrl.substring(1);
+
 
   return (
     <form className="form-cardapio">
@@ -56,9 +62,9 @@ function Cardapio() {
           key={calzone.id}
         />
       ))}
-      <button type="submit" className="button-cardapio">
+      <Link className="button-cardapio" to={`/cardapio/endereco/${paramUrl}`}>
         Próximo
-      </button>
+      </Link>
     </form>
   );
 }

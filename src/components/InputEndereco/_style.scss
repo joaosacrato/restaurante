@@ -33,15 +33,19 @@
   border-bottom: solid 0.15em;
   margin: 0 1em;
 
-  &:focus {
-    outline: none;
-  }
   &-concluido {
     border-color: $terciaria;
   }
 
+  &-naoValido {
+    border-color: $primaria;
+  }
+  &:focus {
+    outline: none;
+  }
+
   &:last-of-type {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
 }
 
@@ -51,6 +55,12 @@
   justify-self: end;
   @media screen and (max-width: 1200px) {
     justify-self: start;
-    margin: 0em 0em 1em 1em;
+    margin: 1.5em 0em 2em 1em;
   }
+}
+
+.span-endereco-erro {
+  background-color: $branco;
+  padding: 0 0 0 1em;
+  color: $primaria;
 }

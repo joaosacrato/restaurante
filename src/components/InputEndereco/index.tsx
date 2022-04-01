@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import mascaraCpf from "../../assets/mask/mascaraCpf";
 import mascaraCep from "../../assets/mask/mascaraCep";
 import mascaraTelefone from "../../assets/mask/mascaraTelefone";
-import validaCpf from "../../assets/validation/validaCpf";
+import validaCpf from "../../assets/validation/validacoes/validaCpf";
+import validaTodosCampos from "../../assets/validation/validaTodosCampos";
 
 function InputEndereco() {
   const [nome, setNome] = useState("");
@@ -15,8 +16,36 @@ function InputEndereco() {
   const [endereco, setEndereco] = useState("");
   const [nr, setNr] = useState("");
 
+  function ViaCep(input: HTMLInputElement) {
+    const cep = input.value.replace(/\D/, "");
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
+    let msg = "";
 
-  validaCpf('449.633.588-32')
+    fetch(url, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.erro) {
+          msg = "O CEP digitado é invalido";
+          input.setCustomValidity(msg);
+          return;
+        }
+
+        setBairro(data.bairro);
+        setEndereco(data.logradouro);
+
+        return;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   return (
     <form className="form-endereco form-endereco">
       <div className="div-endereco">
@@ -24,6 +53,7 @@ function InputEndereco() {
           Nome
         </label>
         <input
+          data-tipo="nome"
           required
           placeholder="Fulano da Silva"
           name="nome"
@@ -34,7 +64,11 @@ function InputEndereco() {
           onChange={(e) => {
             setNome(e.target.value);
           }}
+          onBlur={(e) => {
+            validaTodosCampos(e.target);
+          }}
         />
+        <span className="span-endereco-erro"></span>
       </div>
 
       <div className="div-endereco">
@@ -42,7 +76,9 @@ function InputEndereco() {
           Telefone
         </label>
         <input
+          data-tipo="telefone"
           required
+          pattern="\(\d{2}\)\d{4,5}-\d{4}"
           maxLength={14}
           minLength={13}
           placeholder="(16)12345-6789"
@@ -53,7 +89,11 @@ function InputEndereco() {
           onChange={(e) => {
             setTelefone(mascaraTelefone(e.target.value));
           }}
+          onBlur={(e) => {
+            validaTodosCampos(e.target);
+          }}
         />
+        <span className="span-endereco-erro"></span>
       </div>
 
       <div className="div-endereco">
@@ -61,6 +101,7 @@ function InputEndereco() {
           CPF
         </label>
         <input
+          data-tipo="cpf"
           required
           maxLength={14}
           minLength={14}
@@ -72,7 +113,11 @@ function InputEndereco() {
           onChange={(e) => {
             setCpf(mascaraCpf(e.target.value));
           }}
+          onBlur={(e) => {
+            validaTodosCampos(e.target);
+          }}
         />
+        <span className="span-endereco-erro"></span>
       </div>
 
       <div className="div-endereco">
@@ -80,6 +125,7 @@ function InputEndereco() {
           CEP
         </label>
         <input
+          data-tipo="cep"
           required
           minLength={9}
           maxLength={9}
@@ -88,10 +134,15 @@ function InputEndereco() {
           name="cep"
           className="input-endereco-texto"
           value={cep}
+          onBlur={(e) => {
+            if (!e.target.validity.tooShort && !e.target.validity.valueMissing)
+              ViaCep(e.target);
+          }}
           onChange={(e) => {
             setCep(mascaraCep(e.target.value));
           }}
         />
+        <span className="span-endereco-erro"></span>
       </div>
 
       <div className="div-endereco">
@@ -99,6 +150,7 @@ function InputEndereco() {
           Endereco
         </label>
         <input
+          data-tipo="endereco"
           required
           maxLength={50}
           placeholder="Rua Agnaldo Navarro Dinheiro no Bolso"
@@ -109,7 +161,11 @@ function InputEndereco() {
           onChange={(e) => {
             setEndereco(e.target.value);
           }}
+          onBlur={(e) => {
+            validaTodosCampos(e.target);
+          }}
         />
+        <span className="span-endereco-erro"></span>
       </div>
 
       <div className="div-endereco">
@@ -117,6 +173,7 @@ function InputEndereco() {
           Número
         </label>
         <input
+          data-tipo="numero"
           required
           maxLength={10}
           placeholder="1234"
@@ -127,7 +184,11 @@ function InputEndereco() {
           onChange={(e) => {
             setNr(e.target.value);
           }}
+          onBlur={(e) => {
+            validaTodosCampos(e.target);
+          }}
         />
+        <span className="span-endereco-erro"></span>
       </div>
 
       <div className="div-endereco">
@@ -135,6 +196,7 @@ function InputEndereco() {
           Bairro
         </label>
         <input
+          data-tipo="bairro"
           required
           maxLength={30}
           placeholder="Jd. Paraíso"
@@ -145,7 +207,11 @@ function InputEndereco() {
           onChange={(e) => {
             setBairro(e.target.value);
           }}
+          onBlur={(e) => {
+            validaTodosCampos(e.target);
+          }}
         />
+        <span className="span-endereco-erro"></span>
       </div>
 
       <Link to="" className="button-endereco">

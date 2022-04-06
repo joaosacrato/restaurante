@@ -5,6 +5,7 @@ export const mensagensDeErro: {[key: string]: any} = {
     },
     telefone: {
         valueMissing: "O campo não pode estar vazio",
+        tooShort: "O telefone deve conter 10 ou 11 dígitos",
         patternMismatch: "O telefone deve obedecer ao padrão (12)3456-7891 ou (12)34567-8912"
     },
     cpf: {
@@ -20,12 +21,14 @@ export const mensagensDeErro: {[key: string]: any} = {
         customError:"O CEP dígitado é inválido"
     },
     endereco: {
-        valueMissing: "O campo não pode estar vazio"
+        valueMissing: "O campo não pode estar vazio",
+        tooShort: "O endereço deve conter no mínimo 3 letras"
     },
     numero: {
-        valueMissing: "O campo não pode estar vazio"
+        valueMissing: "O campo não pode estar vazio",
     },
     bairro: {
-        valueMissing: "O campo não pode estar vazio"
+        valueMissing: "O campo não pode estar vazio",
+        tooShort: "O bairro deve conter no mínimo 3 letras"
     }
 }

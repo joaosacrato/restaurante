@@ -2,12 +2,9 @@
 @import "./variables/colors";
 @import './reset.scss';
 
+
 * {
   background-color: $primaria;
-}
-
-body {
-  margin: 0
 }
 
 .nav {
@@ -21,7 +18,6 @@ body {
     padding: 0 0 1em 0;
   }
 }
-
 .logo {
   height: 12em;
   margin: 0 2.5em 0 0;

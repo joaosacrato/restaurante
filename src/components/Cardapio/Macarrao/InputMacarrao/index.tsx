@@ -41,7 +41,6 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
     objMacarrao = { ...objMacarrao, [chave]: ingredientes };
 
     setMacarroes(objMacarrao);
-
   };
 
   return (
@@ -51,6 +50,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
       <div className="container-macarrao-grid">
         <label className="container-macarrao-input-label" htmlFor="spaguetti">
           <input
+            required
             className="container-macarrao-input-radio"
             type="radio"
             id="spaguetti"
@@ -62,6 +62,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="fettuccine">
           <input
+            required
             type="radio"
             className="container-macarrao-input-radio"
             id="fettuccine"
@@ -73,6 +74,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="fusilli">
           <input
+            required
             type="radio"
             className="container-macarrao-input-radio"
             id="fusilli"
@@ -84,6 +86,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="penne">
           <input
+            required
             type="radio"
             className="container-macarrao-input-radio"
             id="penne"
@@ -98,6 +101,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
           htmlFor="penne_tricolor"
         >
           <input
+            required
             type="radio"
             id="penne_tricolor"
             name={`massa_${contador}`}
@@ -108,6 +112,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="farfalle">
           <input
+            required
             type="radio"
             className="container-macarrao-input-radio"
             id="farfalle"
@@ -119,6 +124,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="capelette">
           <input
+            required
             type="radio"
             className="container-macarrao-input-radio"
             id="capelette"
@@ -130,6 +136,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="nhoque">
           <input
+            required
             type="radio"
             className="container-macarrao-input-radio"
             id="nhoque"
@@ -147,6 +154,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
       <div className="container-macarrao-grid">
         <label className="container-macarrao-input-label" htmlFor="branco">
           <input
+            required
             className="container-macarrao-input-radio"
             name={`molho_${contador}`}
             type="radio"
@@ -161,6 +169,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
           htmlFor="branco_com_espinafre"
         >
           <input
+            required
             className="container-macarrao-input-radio"
             name={`molho_${contador}`}
             type="radio"
@@ -172,6 +181,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="bolonhesa">
           <input
+            required
             className="container-macarrao-input-radio"
             name={`molho_${contador}`}
             type="radio"
@@ -183,6 +193,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="rose">
           <input
+            required
             className="container-macarrao-input-radio"
             name={`molho_${contador}`}
             type="radio"
@@ -194,6 +205,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
         </label>
         <label className="container-macarrao-input-label" htmlFor="ao_sugo">
           <input
+            required
             className="container-macarrao-input-radio"
             name={`molho_${contador}`}
             type="radio"
@@ -208,6 +220,7 @@ function InputMacarrao({ contador, setMacarroes, macarroes }: Props) {
           htmlFor="quatro_queijos"
         >
           <input
+            required
             className="container-macarrao-input-radio"
             name={`molho_${contador}`}
             type="radio"

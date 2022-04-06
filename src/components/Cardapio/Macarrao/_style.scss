@@ -4,7 +4,13 @@
 .container_form {
   background-color: $branco;
   transition: all 2s;
-  padding: 0 1em;
+  margin: 0 13em;
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 1em;
+    margin: 0
+
+  }
 
   .titulo_form {
     @extend .card-titulo;

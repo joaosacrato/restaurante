@@ -1,10 +1,11 @@
 @import "../../../styles/variables/colors";
 
 .card {
+  margin: 0 12em;
   display: inline-block;
   background-color: $branco;
   padding: 1em 1em;
-  border-top: solid;
+  border-top: solid 0.1px;
 
 
   &-titulo {
@@ -47,6 +48,10 @@
   
 
   &:last-of-type{
-      border-bottom: solid ;
+      border-bottom: solid 0.1 px ;
+  }
+
+  @media screen and (max-width: 1200px) {
+    margin: 0;
   }
 }

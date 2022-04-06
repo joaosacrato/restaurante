@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
-import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
+import "./styles/main.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Cardapio from "./pages/Cardapio";

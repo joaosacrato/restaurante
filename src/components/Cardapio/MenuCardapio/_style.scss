@@ -6,6 +6,11 @@
   justify-content: flex-end;
   gap: 2em;
   background-color: $branco;
+  margin: 0 12em;
+
+  @media screen and (max-width: 1200px) {
+    margin: 0;
+  }
 
   @media screen and (max-width: 992px) {
     justify-content: center;
@@ -21,4 +26,5 @@
 .menu-item-macarrao {
   background-color: $terciaria;
   color: $branco;
+  
 }

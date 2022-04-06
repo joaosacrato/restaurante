@@ -1,6 +1,6 @@
-import validaCpf from "./validacoes/validaCpf";
-import { tiposErro } from "./errorMessages/tiposErro";
-import { mensagensDeErro } from "./errorMessages/msgsErro";
+import validaCpf from "./validaCpf";
+import { tiposErro } from "../errorMessages/tiposErro";
+import { mensagensDeErro } from "../errorMessages/msgsErro";
 
 export default function validaTodosCampos(input: HTMLInputElement) {
   const tipoDeInput = input.dataset.tipo as string;

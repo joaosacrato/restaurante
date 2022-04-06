@@ -1,11 +1,11 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import "./_style.scss";
 import { Link } from "react-router-dom";
 import mascaraCpf from "../../assets/mask/mascaraCpf";
 import mascaraCep from "../../assets/mask/mascaraCep";
 import mascaraTelefone from "../../assets/mask/mascaraTelefone";
-import validaCpf from "../../assets/validation/validacoes/validaCpf";
-import validaTodosCampos from "../../assets/validation/validaTodosCampos";
+import validaTodosCampos from "../../assets/validation/validacoes/validaCamposEndereco";
+import mascaraOnlyLetters from "../../assets/mask/mascaraOnlyLetters";
 
 function InputEndereco() {
   const [nome, setNome] = useState("");
@@ -16,12 +16,12 @@ function InputEndereco() {
   const [endereco, setEndereco] = useState("");
   const [nr, setNr] = useState("");
 
-  function ViaCep(input: HTMLInputElement) {
+  async function ViaCep(input: HTMLInputElement) {
     const cep = input.value.replace(/\D/, "");
     const url = `https://viacep.com.br/ws/${cep}/json/`;
     let msg = "";
 
-    fetch(url, {
+    await fetch(url, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -38,6 +38,7 @@ function InputEndereco() {
 
         setBairro(data.bairro);
         setEndereco(data.logradouro);
+        input.setCustomValidity(msg);
 
         return;
       })
@@ -61,8 +62,9 @@ function InputEndereco() {
           className="input-endereco-texto"
           value={nome}
           maxLength={50}
+          minLength={3}
           onChange={(e) => {
-            setNome(e.target.value);
+            setNome(mascaraOnlyLetters(e.target.value));
           }}
           onBlur={(e) => {
             validaTodosCampos(e.target);
@@ -134,9 +136,14 @@ function InputEndereco() {
           name="cep"
           className="input-endereco-texto"
           value={cep}
-          onBlur={(e) => {
-            if (!e.target.validity.tooShort && !e.target.validity.valueMissing)
-              ViaCep(e.target);
+          onBlur={async (e) => {
+            if (
+              !e.target.validity.tooShort &&
+              !e.target.validity.valueMissing
+            ) {
+              await ViaCep(e.target);
+            }
+            validaTodosCampos(e.target);
           }}
           onChange={(e) => {
             setCep(mascaraCep(e.target.value));
@@ -153,6 +160,7 @@ function InputEndereco() {
           data-tipo="endereco"
           required
           maxLength={50}
+          minLength={3}
           placeholder="Rua Agnaldo Navarro Dinheiro no Bolso"
           type="text"
           name="endereco"
@@ -199,6 +207,7 @@ function InputEndereco() {
           data-tipo="bairro"
           required
           maxLength={30}
+          minLength={3}
           placeholder="Jd. Paraíso"
           type="text"
           name="bairro"

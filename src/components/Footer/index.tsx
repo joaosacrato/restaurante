@@ -13,10 +13,10 @@ function Footer() {
           <span className="span">Telefone: (16) 2123-1323</span>
         </div>
         <div className="div-enderecos">
-          <a href="" className="icon">
+          <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-sacrato-de-oliveira/" className="icon">
             <BsLinkedin/>
           </a>
-          <a href="/" className='icon'>
+          <a href="https://github.com/joaosacrato" className='icon'>
             <BsGithub />
           </a>
         </div>

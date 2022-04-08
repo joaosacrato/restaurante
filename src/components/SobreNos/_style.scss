@@ -1,0 +1,42 @@
+@use "sass:math";
+
+.div-sobrenos {
+  $height: calc(100vh - 14em);
+  $height_600: calc(100vh - 9em);
+  min-height: $height;
+  background-image: url("../../assets/img/sobreNos.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: 35% 90%;
+
+  @media screen and (max-width: 600px) {
+
+    min-height: $height_600;
+      
+  }
+
+  .p-sobrenos {
+    color: $branco;
+    background-color: transparent;
+    text-align: center;
+    font-size: 4em;
+    padding: 0 3em;
+    font-weight: 1000;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+
+    @media screen and (max-width: 992px) {
+      font-size: 3em;
+      padding: 0 1em;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 2em;
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+}

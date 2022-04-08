@@ -1,6 +1,4 @@
-import "./_style.scss";
-import { Fragment } from "react";
-import { SiInstagram, SiFacebook } from "react-icons/si";
+import {BsLinkedin, BsGithub } from 'react-icons/bs'
 
 function Footer() {
   return (
@@ -8,18 +6,18 @@ function Footer() {
       <hr className="hr" />
       <footer className="footer">
         <div className="div-enderecos">
-          <span className="span">Di Napoli</span>
-          <span className="span">Av. Padre Nelson Antonio Romão, 416</span>
+          <span className="span">Sua Pizza</span>
+          <span className="span">Av. Lorem ipsum dolor sit, 416</span>
           <span className="span">Centro, Matão - SP</span>
-          <span className="span">Telefone: (16) 3382-7996 </span>
-          <span className="span">Telefone: (16) 3382-6861</span>
+          <span className="span">Telefone: (16) 4564-1533 </span>
+          <span className="span">Telefone: (16) 2123-1323</span>
         </div>
         <div className="div-enderecos">
-          <a href="/" className="icon">
-            <SiInstagram />
+          <a href="" className="icon">
+            <BsLinkedin/>
           </a>
           <a href="/" className='icon'>
-            <SiFacebook />
+            <BsGithub />
           </a>
         </div>
       </footer>

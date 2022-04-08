@@ -1,7 +1,7 @@
 {
   "pizzas_salgadas": [
     {
-      "id": 1,
+      "id":"1",
       "nome": "Portuguesa",
       "preco": 45.0,
       "ingredientes": [
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "id": 2,
+      "id":"2",
       "nome": "Pascoalito",
       "preco": 45.0,
       "ingredientes": [
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "id": 3,
+      "id":"3",
       "nome": "Quatro queijos",
       "preco": 45.0,
       "ingredientes": [
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "id": 4,
+      "id":"4",
       "nome": "Di napoli",
       "preco": 45.0,
       "ingredientes": [
@@ -64,19 +64,19 @@
 
   "pizzas_doces": [
     {
-      "id": 66,
+      "id":"66",
       "nome": "Chocolate",
       "preco": 45.0,
       "ingredientes": ["Chocolate"]
     },
     {
-      "id": 67,
+      "id":"67",
       "nome": "Sensação",
       "preco": 45.0,
       "ingredientes": ["Chocolate", "Morango"]
     },
     {
-      "id": 68,
+      "id":"68",
       "nome": "Prestígio",
       "preco": 45,
       "ingredientes": ["Chocolate", "Coco"]
@@ -84,7 +84,7 @@
   ],
   "calzone": [
     {
-      "id": 72,
+      "id":"72",
       "nome": "Calzone simples",
       "preco": 45,
       "ingredientes": [
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "id": 79,
+      "id":"79",
       "nome": "Calzone calabreza",
       "preco": 45,
       "ingredientes": [

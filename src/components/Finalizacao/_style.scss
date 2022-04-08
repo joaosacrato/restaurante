@@ -1,0 +1,16 @@
+.container-finalizacao {
+    @extend .form-cardapio;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 1em
+}
+
+.p-finalizacao {
+    background-color: $branco;
+    font-size: 2em;
+}

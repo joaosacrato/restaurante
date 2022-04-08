@@ -1,5 +1,4 @@
-import react, { useEffect, useState } from "react";
-import "./_style.scss";
+import react, {  useState } from "react";
 import Card from "./Card";
 import MenuCardapio from "./MenuCardapio";
 import MenuMacarrao from "./Macarrao";
@@ -7,6 +6,7 @@ import data from "../../data/cardapio.json";
 import { Link } from "react-router-dom";
 import urlToObj from "../../assets/functions/urlToObj";
 import validaCardapio from "../../assets/validation/validacoes/validaCardapio";
+import { objToUrl } from "../../assets/functions/objToUrl";
 
 function Cardapio() {
   const [macarroes, setMacarroes] = useState({});
@@ -14,22 +14,14 @@ function Cardapio() {
   const [toggleInputMacarrao, setToggleInputMacarrao] = useState(false);
   const [itemSelecionado, setItemSelecionado] = useState("pizzas_salgadas");
 
-  const submitItems = (obj: any) => {
-    let str = "";
-    for (const prop in obj) {
-      str = str + "&" + prop + "=" + obj[prop];
-    }
-    return str;
-  };
-
   //parametro da url
 
-  let paramUrl = submitItems(items) + submitItems(macarroes);
+  let paramUrl = objToUrl(items) + objToUrl(macarroes);
   paramUrl = paramUrl.replaceAll(",", "+");
   paramUrl = "?" + paramUrl.substring(1);
+  paramUrl = encodeURI(paramUrl);
 
-  let verificacaoCardapio = validaCardapio(urlToObj(paramUrl))
-  console.log(verificacaoCardapio)
+  let verificacaoCardapio = validaCardapio(urlToObj(paramUrl));
 
   return (
     <form className="form-cardapio">
@@ -38,6 +30,7 @@ function Cardapio() {
         setToggleInputMacarrao={setToggleInputMacarrao}
         dataKeys={Object.keys(data)}
         setItemSelecionado={setItemSelecionado}
+        itemSelecionado={itemSelecionado}
       />
       {toggleInputMacarrao && (
         <MenuMacarrao
@@ -59,11 +52,11 @@ function Cardapio() {
 
       <Link
         className="button-cardapio"
-        to={paramUrl !== "?" ? `/cardapio/endereco/${paramUrl}` : ``}
+        to={verificacaoCardapio[0] ? `/cardapio/endereco/${paramUrl}` : ``}
         onClick={(e) => {
-          paramUrl === "?"
+          verificacaoCardapio[0] === false
             ? ((e.target as HTMLButtonElement).nextSibling!.textContent =
-                "Você precisa selecionar ao menos um item")
+                verificacaoCardapio[1] as string)
             : ((e.target as HTMLButtonElement).nextSibling!.textContent = "");
         }}
       >

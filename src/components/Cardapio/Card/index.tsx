@@ -1,7 +1,6 @@
 import react from "react";
 import { useState } from "react";
 import Contador from "../../Contador";
-import "./_style.scss";
 
 interface Props {
   items: {};
@@ -30,8 +29,8 @@ function Card({ pizza, items, setItems }: Props) {
           ))}
         </div>
         <div className="card-div-ingredientes">
-          <span className="card-span">Preço:</span>
-          <span className="card-span">{pizza.preco.toFixed(2)}</span>
+          <span className="card-span">Preço: </span>
+          <span className="card-span">{pizza.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</span>
         </div>
         <Contador
           nome={pizza.id.toString()}

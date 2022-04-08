@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-import "./_style.scss";
+import React from "react";
 
 interface Props {
   contador: number;

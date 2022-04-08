@@ -1,6 +1,27 @@
 @import "./variables/font";
 @import "./variables/colors";
-@import './reset.scss';
+@import "./reset.scss";
+
+
+
+@import '../components/Cabecalho/style';
+
+@import '../components/Cardapio/style';
+@import '../components/Cardapio/Card/style';
+@import '../components/Cardapio/Macarrao/style';
+@import '../components/Cardapio/MenuCardapio/style';
+
+@import '../components/ConfirmacaoMenu/style';
+
+@import '../components/Contador/style';
+
+@import '../components/Finalizacao/style';
+
+@import '../components/Footer/style';
+
+@import '../components/InputEndereco/style';
+
+@import '../components/SobreNos/style';
 
 
 * {
@@ -18,14 +39,7 @@
     padding: 0 0 1em 0;
   }
 }
-.logo {
-  height: 12em;
-  margin: 0 2.5em 0 0;
-  @media only screen and (max-width: 600px) {
-    height: 9em;
-    margin: 0.5em 0em;
-  }
-}
+
 
 .menu-item {
   border: solid;

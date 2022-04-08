@@ -1,5 +1,4 @@
 import react, { useEffect } from "react";
-import "./_style.scss";
 
 interface Props {
   contador: number;

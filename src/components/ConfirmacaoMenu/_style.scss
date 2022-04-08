@@ -1,0 +1,82 @@
+@import "../Cardapio/style";
+
+.container-confirmacao {
+  @extend .form-cardapio;
+  min-height: auto;
+  background-color: $branco;
+  padding: 5em;
+  padding-left: 10em;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 1200px) {
+      padding-left: 5em ;
+  }
+  @media screen and (max-width: 768px) {
+      padding: 2em
+   
+}
+  
+}
+
+.section-confirmacao {
+  background-color: $branco;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+   
+}
+  
+}
+
+.h2-confirmacao {
+  font-weight: 900;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  background-color: $branco;
+}
+
+.p-confirmacao {
+  background-color: $branco;
+  font-size: 1.2em;
+  align-self: center;
+  text-transform: capitalize;
+  strong {
+    background-color: $branco;
+    line-height: 1.1;
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+}
+.h3-confirmacao {
+  @extend .p-confirmacao;
+  font-size: 1.4em;
+  gap: 0;
+}
+
+.div-confirmacao-pedido {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-color: $branco;
+  padding-top: 1em;
+}
+
+.div-confirmacao-macarrao {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-color: $branco;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.div-qtdmacarrao {
+  background-color: $branco;
+  padding-top: 1em;
+}
+
+.div-ingredientes {
+  background-color: $branco;
+}

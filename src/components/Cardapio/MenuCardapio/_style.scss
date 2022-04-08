@@ -3,7 +3,7 @@
 .nav-cardapio {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 2em;
   background-color: $branco;
   margin: 0 12em;
@@ -23,8 +23,15 @@
   }
 }
 
-.menu-item-macarrao {
+.menu-item-macarrao-ativo {
   background-color: $terciaria;
   color: $branco;
-  
+}
+
+.div-item-flex {
+  background-color: $branco;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
 }

@@ -1,7 +1,6 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import Contador from "../../Contador";
 import InputMacarrao from "./InputMacarrao";
-import "./_style.scss";
 
 interface Props {
   items: {};
@@ -28,6 +27,7 @@ function MenuMacarrao({ macarroes, setMacarroes, items, setItems }: Props) {
   return (
     <div className="container_form">
       <h2 className="titulo_form">Quantos pratos de macarrão deseja?</h2>
+      <h2 className="card-span">Preço unitário R$ 25,00</h2>
       <Contador
         items={items}
         setItems={setItems}

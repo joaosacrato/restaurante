@@ -1,11 +1,11 @@
-import { useState } from "react";
-import "./_style.scss";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import mascaraCpf from "../../assets/mask/mascaraCpf";
 import mascaraCep from "../../assets/mask/mascaraCep";
 import mascaraTelefone from "../../assets/mask/mascaraTelefone";
 import validaTodosCampos from "../../assets/validation/validacoes/validaCamposEndereco";
 import mascaraOnlyLetters from "../../assets/mask/mascaraOnlyLetters";
+import { objToUrl } from "../../assets/functions/objToUrl";
 
 function InputEndereco() {
   const [nome, setNome] = useState("");
@@ -15,6 +15,40 @@ function InputEndereco() {
   const [bairro, setBairro] = useState("");
   const [endereco, setEndereco] = useState("");
   const [nr, setNr] = useState("");
+  const [obj, setObj] = useState<{ [key: string]: string }>({});
+
+  const paramsAnteriores = useLocation().search;
+
+  let urlNova = objToUrl(obj);
+
+  urlNova = paramsAnteriores + urlNova;
+
+  function verificaValidacao() {
+    const dom: NodeListOf<HTMLInputElement> =
+      document.querySelectorAll("[data-tipo]");
+    let validacao = true;
+
+    dom.forEach((input) => {
+      if (input.validity.valid == false) {
+        validacao = false;
+      }
+    });
+
+    return validacao;
+  }
+
+  useEffect(() => {
+    let objAux = {
+      nome: encodeURI(nome),
+      telefone: encodeURI(telefone),
+      cpf: encodeURI(cpf),
+      cep: encodeURI(cep),
+      bairro: encodeURI(bairro),
+      endereco: encodeURI(endereco),
+      nr: encodeURI(nr),
+    };
+    setObj(objAux);
+  }, [nome, telefone, cpf, cep, bairro, endereco, nr]);
 
   async function ViaCep(input: HTMLInputElement) {
     const cep = input.value.replace(/\D/, "");
@@ -223,9 +257,18 @@ function InputEndereco() {
         <span className="span-endereco-erro"></span>
       </div>
 
-      <Link to="" className="button-endereco">
-        Prosseguir
-      </Link>
+      <div className="div-botoes">
+        <Link to={"/cardapio"} className="button-endereco">
+          Voltar
+        </Link>
+
+        <Link
+          to={verificaValidacao() ? `order/${urlNova}` : `${paramsAnteriores}`}
+          className="button-endereco"
+        >
+          Prosseguir
+        </Link>
+      </div>
     </form>
   );
 }

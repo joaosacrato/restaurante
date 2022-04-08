@@ -1,11 +1,10 @@
-import "./_style.scss";
 import { Link } from "react-router-dom";
 
 function Cabecalho() {
   return (
     <nav className="nav">
       <Link to="/" className="link logo-link">
-        <img className="logo" src="../../assets/img/logo.png" alt="logo" />
+        <img className="logo" src="../../assets/img/logo.jpg" alt="logo" />
       </Link>
 
       <ul className="menu">

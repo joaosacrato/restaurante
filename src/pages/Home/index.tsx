@@ -1,15 +1,8 @@
-import React, { Fragment } from "react";
-
 import "./style.scss";
-import Cabecalho from '../../components/Cabecalho'
-import Footer from '../../components/Footer'
+import SobreNos from "../../components/SobreNos";
 
 function Home() {
-  return (
-    
-    <Fragment>
-    </Fragment>
-  );
+  return <SobreNos />;
 }
 
 export default Home;

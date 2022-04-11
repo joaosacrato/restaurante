@@ -38,4 +38,8 @@
   align-self: flex-end;
   margin: 1em 10em 0.5em 0;
   font-size: 1.3em;
+
+  @media screen and (max-width: 1200px) {
+    margin: 0 1em 0.5em 1em;
+  }
 }

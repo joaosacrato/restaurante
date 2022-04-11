@@ -195,7 +195,7 @@ function InputEndereco() {
           required
           maxLength={50}
           minLength={3}
-          placeholder="Rua Agnaldo Navarro Dinheiro no Bolso"
+          placeholder="Av. Brasil"
           type="text"
           name="endereco"
           className="input-endereco-texto"
@@ -258,7 +258,7 @@ function InputEndereco() {
       </div>
 
       <div className="div-botoes">
-        <Link to={"/cardapio"} className="button-endereco">
+        <Link to={"/restaurante/cardapio"} className="button-endereco">
           Voltar
         </Link>
 

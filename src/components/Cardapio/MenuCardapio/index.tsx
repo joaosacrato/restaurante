@@ -33,7 +33,7 @@ function MenuCardapio({
   }, [itemSelecionado]);
 
   return (
-    <nav className="nav nav-cardapio">
+    <nav className="nav-cardapio">
       <button
         onClick={(e) => {
           e.preventDefault();

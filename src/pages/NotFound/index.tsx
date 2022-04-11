@@ -1,9 +1,7 @@
+import NaoEncontrado from "../../components/NotFound";
+
 function NotFound() {
-  return (
-    <>
-      <p> nao existe </p>
-    </>
-  );
+  return <NaoEncontrado />;
 }
 
 export default NotFound;

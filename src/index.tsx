@@ -16,9 +16,9 @@ ReactDOM.render(
     <BrowserRouter>
       <Cabecalho />
       <Routes>
-        <Route path="/">
+        <Route path="/restaurante">
           <Route index element={<Home />} />
-          <Route path="/cardapio">
+          <Route path="/restaurante/cardapio">
             <Route index element={<Cardapio />} />
             <Route path="endereco/*" element={<Endereco />} />
             <Route path="endereco/order/*" element={<ConfirmacaoCardapio />} />

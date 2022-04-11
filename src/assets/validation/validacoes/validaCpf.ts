@@ -56,8 +56,13 @@ export default function validaCpf(cpf: string) {
 
   const resto_soma_mult2 = (soma_mult * 10) % 11;
 
+  console.log(resto_soma_mult2)
+  console.log(parseInt(arrayCpf[10]))
 
-  if (resto_soma_mult2 !== parseInt(arrayCpf[10]) && resto_soma_mult1 !== 10) {
+  console.log(resto_soma_mult1 !== 10)
+
+
+  if (resto_soma_mult2 !== parseInt(arrayCpf[10]) && resto_soma_mult2 !== 10) {
     console.log("falso");
     return false;
   }

@@ -1,15 +1,19 @@
 @import "../../styles/variables/colors";
 
 .logo {
-  height: 12em;
-  margin: 0 2.5em 0 0;
-  border-radius: 50%;
-  border: solid 0.2em;
+  background-image: url('../../assets/img/logo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 6em;
+  width: 6em;
+  border-radius: 100%;
+  border: solid 0.1em;
+  margin: 0 2em 0 0;
   @media only screen and (max-width: 600px) {
-    height: 9em;
     margin: 0.5em 0em;
   }
 }
+
 
 .logo-link {
   background-color: $primaria !important;

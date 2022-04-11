@@ -1,4 +1,4 @@
-import react, {  useState } from "react";
+import react, { useState } from "react";
 import Card from "./Card";
 import MenuCardapio from "./MenuCardapio";
 import MenuMacarrao from "./Macarrao";
@@ -52,7 +52,11 @@ function Cardapio() {
 
       <Link
         className="button-cardapio"
-        to={verificacaoCardapio[0] ? `/cardapio/endereco/${paramUrl}` : ``}
+        to={
+          verificacaoCardapio[0]
+            ? `/restaurante/cardapio/endereco/${paramUrl}`
+            : ``
+        }
         onClick={(e) => {
           verificacaoCardapio[0] === false
             ? ((e.target as HTMLButtonElement).nextSibling!.textContent =

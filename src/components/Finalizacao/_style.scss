@@ -1,6 +1,6 @@
 .container-finalizacao {
     @extend .form-cardapio;
-    min-height: 30vh;
+    min-height: 0 !important;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -8,6 +8,12 @@
     align-items: center;
     gap: 1em;
     padding: 1em
+}
+
+.svg-finalizacao {
+    background-color:transparent;
+    font-size: 10em;
+    color: $terciaria;
 }
 
 .p-finalizacao {

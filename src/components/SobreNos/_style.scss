@@ -1,8 +1,8 @@
 @use "sass:math";
 
 .div-sobrenos {
-  $height: calc(100vh - 14em);
-  $height_600: calc(100vh - 9em);
+  $height: calc(100vh - 8rem);
+
   min-height: $height;
   background-image: url("../../assets/img/sobreNos.jpg");
   background-repeat: no-repeat;
@@ -15,7 +15,7 @@
 
   @media screen and (max-width: 600px) {
 
-    min-height: $height_600;
+    min-height: $height;
       
   }
 

@@ -48,8 +48,8 @@ function ConfirmacaoMenu() {
     }
   }
 
-  let urlVoltar = objToUrl(objPedidos)
-  urlVoltar = '?' + urlVoltar.substring(1)
+  let urlVoltar = objToUrl(objPedidos);
+  urlVoltar = "?" + urlVoltar.substring(1);
 
   const arrayDePizzas = encontraPizzas();
 
@@ -166,12 +166,15 @@ function ConfirmacaoMenu() {
         </p>
       </section>
       <div className="div-botoes">
-        <Link to={`/cardapio/endereco/${urlVoltar}`} className="button-endereco">
+        <Link
+          to={`/restaurante/cardapio/endereco/${urlVoltar}`}
+          className="button-endereco"
+        >
           Voltar
         </Link>
 
         <Link
-          to={'/cardapio/endereco/order/end'}
+          to={"/restaurante/cardapio/endereco/order/end"}
           className="button-endereco"
         >
           Finalizar

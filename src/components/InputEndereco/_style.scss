@@ -59,6 +59,7 @@
   @media screen and (max-width: 1200px) {
     justify-self: start;
     margin: 1.5em 0em 2em 1em;
+    flex-wrap: wrap;
   }
 }
 
@@ -66,6 +67,15 @@
   background-color: $branco;
   padding: 0 0 0 1em;
   color: $primaria;
+}
+
+.p-endereco-erro-button {
+  background-color: $branco;
+  padding: 0 0 0 1em;
+  color: $primaria;
+  align-self: center;
+  
+
 }
 
 

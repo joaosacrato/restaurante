@@ -21,8 +21,10 @@ function CardMenuConfirmacao({ nome, ingredientes, preco, quantidade }: Props) {
         <span className="p-confirmacao">
           <strong>Ingredientes: </strong>
         </span>
-        {ingredientes.map((ingrediente) => (
-          <span className="p-confirmacao">{ingrediente} </span>
+        {ingredientes.map((ingrediente, key) => (
+          <span key={key} className="p-confirmacao">
+            {ingrediente}{" "}
+          </span>
         ))}
       </div>
       <p className="p-confirmacao">

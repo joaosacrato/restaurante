@@ -28,6 +28,7 @@ function ConfirmacaoMenu() {
 
     return arrayRetorno;
   }
+
   const url = useLocation().search;
   const keys = Object.keys(data);
   let objPedidos: { [key: string]: string } = urlToObj(decodeURI(url));
@@ -39,6 +40,7 @@ function ConfirmacaoMenu() {
     endereco: objPedidos.endereco,
     bairro: objPedidos.bairro,
     nr: objPedidos.nr,
+    complemento: objPedidos.complemento,
   };
 
   // apaga os dados do cliente do obj de pedidos
@@ -83,8 +85,8 @@ function ConfirmacaoMenu() {
   }
   return (
     <section className="container-confirmacao">
+      <h2 className="h2-confirmacao">Dados</h2>
       <section className="section-confirmacao">
-        <h2 className="h2-confirmacao">Dados</h2>
         <p className="p-confirmacao">
           <strong>Nome:</strong> {objDados.nome}
         </p>
@@ -111,14 +113,24 @@ function ConfirmacaoMenu() {
           {" "}
           <strong>Número:</strong> {objDados.nr}
         </p>
+
+        {objDados.complemento !== "-" ? (
+          <p className="p-confirmacao">
+            {" "}
+            <strong>Complemento:</strong> {objDados.complemento}
+          </p>
+        ) : (
+          ""
+        )}
       </section>
       <hr />
       <section>
         <h2 className="h2-confirmacao">Pedidos</h2>
 
         {arrayDePizzas.map(
-          (pizza: { [key: string]: string | number | string[] }) => (
+          (pizza: { [key: string]: string | number | string[] }, key) => (
             <CardMenuConfirmacao
+              key={key}
               nome={pizza!.nome as string}
               preco={pizza!.preco as number}
               ingredientes={pizza!.ingredientes as string[]}
@@ -148,8 +160,9 @@ function ConfirmacaoMenu() {
         </div>
 
         <div className="div-confirmacao-macarrao">
-          {arrayObjsMacarrao.map((mac) => (
+          {arrayObjsMacarrao.map((mac, key) => (
             <CardMacarraoConfirmacao
+              key={key}
               massa={mac.massa}
               molho={mac.molho}
               ingredientes={mac.ingrediente}

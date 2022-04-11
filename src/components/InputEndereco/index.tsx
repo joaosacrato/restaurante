@@ -15,6 +15,7 @@ function InputEndereco() {
   const [bairro, setBairro] = useState("");
   const [endereco, setEndereco] = useState("");
   const [nr, setNr] = useState("");
+  const [complemento, setComplemento] = useState("");
   const [obj, setObj] = useState<{ [key: string]: string }>({});
 
   const paramsAnteriores = useLocation().search;
@@ -46,9 +47,10 @@ function InputEndereco() {
       bairro: encodeURI(bairro),
       endereco: encodeURI(endereco),
       nr: encodeURI(nr),
+      complemento: complemento ? encodeURI(complemento) : encodeURI("-"),
     };
     setObj(objAux);
-  }, [nome, telefone, cpf, cep, bairro, endereco, nr]);
+  }, [nome, telefone, cpf, cep, bairro, endereco, nr, complemento]);
 
   async function ViaCep(input: HTMLInputElement) {
     const cep = input.value.replace(/\D/, "");
@@ -234,6 +236,28 @@ function InputEndereco() {
       </div>
 
       <div className="div-endereco">
+        <label htmlFor="complemento" className="label-endereco-texto">
+          Complemento
+        </label>
+        <input
+          data-tipo="complemento"
+          maxLength={25}
+          placeholder="Aptm. 42"
+          type="text"
+          name="complemento"
+          className="input-endereco-texto"
+          value={complemento}
+          onChange={(e) => {
+            setComplemento(e.target.value);
+          }}
+          onBlur={(e) => {
+            validaTodosCampos(e.target);
+          }}
+        />
+        <span className="span-endereco-erro"></span>
+      </div>
+
+      <div className="div-endereco">
         <label htmlFor="bairro" className="label-endereco-texto">
           Bairro
         </label>
@@ -265,10 +289,19 @@ function InputEndereco() {
         <Link
           to={verificaValidacao() ? `order/${urlNova}` : `${paramsAnteriores}`}
           className="button-endereco"
+          onClick={(e) => {
+            if (!verificaValidacao()) {
+              (
+                e.target as HTMLAnchorElement
+              ).parentElement!.nextSibling!.textContent =
+                "Algum campo está vazio";
+            }
+          }}
         >
           Prosseguir
         </Link>
       </div>
+      <span className="p-endereco-erro-button" />
     </form>
   );
 }

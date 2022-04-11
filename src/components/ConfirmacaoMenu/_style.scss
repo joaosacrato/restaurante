@@ -2,7 +2,7 @@
 
 .container-confirmacao {
   @extend .form-cardapio;
-  min-height: auto;
+  min-height: auto !important;
   background-color: $branco;
   padding: 5em;
   padding-left: 10em;
